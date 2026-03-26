@@ -73,11 +73,11 @@ class MyNN(nn.Module):
             nn.Flatten(),
             nn.Linear(64*7*7, 128),
             nn.ReLU(),
-            nn.Dropout(p=0.4),
+            nn.Dropout(p=0.3),
 
             nn.Linear(128, 64),
             nn.ReLU(),
-            nn.Dropout(p=0.4),
+            nn.Dropout(p=0.3),
 
             nn.Linear(64, 10)   # 10 classes for Fashion-MNIST
         )
@@ -93,7 +93,7 @@ model = MyNN(1).to(device)
 
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
-epochs = 50
+epochs = 20
 
 
 for epoch in range(epochs):
